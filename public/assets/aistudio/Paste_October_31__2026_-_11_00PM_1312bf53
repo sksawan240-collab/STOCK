@@ -1,0 +1,1491 @@
+# PROJECT TITLE
+
+AI StockVision — Intelligent Stock Chart Analysis, Prediction & Risk Management Platform
+
+## 1. PROJECT OBJECTIVE
+
+Act as a senior full-stack software engineer, AI/ML engineer, financial data engineer, UI/UX designer, database architect, and cybersecurity specialist.
+
+Build a complete, production-structured, full-stack web application called **AI StockVision**, designed for educational stock-market chart analysis, AI-assisted price forecasting, technical indicator analysis, risk management, and stock-market learning.
+
+The website must have a beautiful, clean, transparent, modern, responsive, and professional interface with advanced animations and interactive financial charts.
+
+The application must include a fully functional frontend, backend, MongoDB database, real AI integrations, email verification, an AI stock chatbot, chart-image analysis, interactive prediction levels, PDF report generation, and a complete user authentication system.
+
+### CRITICAL REQUIREMENTS
+
+* Build a real, working application rather than a static UI demonstration.
+* Do not use mock data, fake stock prices, fabricated predictions, sample transactions, or hardcoded dashboard statistics.
+* Do not display invented AI-generated predictions as real market data.
+* All stock prices, historical candles, user records, saved reports, and analysis history must come from real data sources or actual user uploads.
+* If a data provider or AI service is unavailable, display a clear error or unavailable state.
+* Never silently replace failed API responses with sample data.
+* Use environment variables for all API keys, database credentials, email credentials, and secrets.
+* Implement proper authentication, authorization, input validation, error handling, logging, and rate limiting.
+* Make all buttons, forms, filters, charts, navigation links, and dashboard features functional.
+* Do not leave core features as TODOs or unfinished placeholders.
+* If external API credentials are required, implement the integration completely and provide clear setup instructions.
+
+---
+
+# 2. RECOMMENDED TECHNOLOGY STACK
+
+Use the following technologies.
+
+## Frontend
+
+* React.js with Vite
+* TypeScript
+* Tailwind CSS
+* Framer Motion for animations
+* Three.js or React Three Fiber for subtle 3D elements where appropriate
+* Lucide React for icons
+* React Router for navigation
+* TanStack Query for API requests and server-state management
+* React Hook Form and Zod for form validation
+* TradingView Lightweight Charts for interactive financial charts
+* Recharts for portfolio and risk analytics where appropriate
+* Axios or a centralized fetch client for backend communication
+
+## Backend
+
+* Node.js
+* Express.js
+* TypeScript
+* REST API architecture
+* Socket.IO only where real-time updates are needed
+* JWT authentication using secure, HttpOnly cookies or an equivalent secure session strategy
+* Argon2 or bcrypt for password hashing
+* Zod for request validation
+* Rate limiting and security middleware
+
+## Database
+
+Use MongoDB Atlas with Mongoose.
+
+Create properly structured schemas for:
+
+1. Users
+2. Email OTP verification
+3. Stock analysis requests
+4. Uploaded chart images and associated metadata
+5. Prediction reports
+6. Chatbot conversation history
+7. User watchlists
+8. User preferences
+9. Authentication and security audit events
+
+Use database indexes, timestamps, ownership checks, and appropriate data retention policies.
+
+## AI Integration
+
+Create a provider-independent AI service layer.
+
+Use a vision-capable AI model to analyze uploaded chart images and a capable language model to answer stock-market questions.
+
+The provider must be configurable through environment variables.
+
+Use actual AI API calls. Do not simulate AI responses.
+
+If no API key is configured, show a clear configuration error and explain how to enable the feature.
+
+## Financial Data
+
+Create a dedicated market-data service that supports a legitimate stock-market data provider.
+
+Provider selection must be configurable.
+
+Possible integrations include:
+
+* NSE/BSE-authorized or appropriately licensed data providers for Indian stocks.
+* Licensed market-data APIs for international stocks.
+* Other providers whose terms permit the intended usage.
+
+Clearly identify the data provider, exchange, currency, last-updated timestamp, and whether the data is real-time or delayed.
+
+Never invent a live stock price.
+
+---
+
+# 3. WEBSITE DESIGN AND BRANDING
+
+Create a premium financial technology design.
+
+### Visual style
+
+* Clean, transparent, glassmorphism-inspired interface.
+* Dark navy, black, white, electric blue, cyan, and violet accents.
+* Light and dark themes.
+* Smooth gradients and subtle background effects.
+* Animated cards with gentle hover effects.
+* Professional typography.
+* Beautiful loading animations.
+* Responsive charts and dashboard layouts.
+* Carefully designed empty, error, and success states.
+* Subtle 3D visual elements without slowing down the website.
+
+Use transparency carefully. Text and financial charts must remain readable and accessible.
+
+### Header
+
+Create a transparent, sticky navigation bar containing:
+
+* AI StockVision logo.
+* Home.
+* Market Analysis.
+* Chart Analyzer.
+* AI Stock Assistant.
+* Risk Management.
+* My Reports.
+* Watchlist.
+* Login/Register or user profile.
+* Light/dark mode toggle.
+
+On mobile, provide a responsive navigation menu.
+
+Display authenticated navigation options only to logged-in users.
+
+### Footer
+
+Create a clean, transparent footer containing:
+
+* About AI StockVision.
+* Educational resources.
+* Contact.
+* Privacy policy.
+* Terms of service.
+* Data-provider information.
+* AI limitations.
+* Risk disclosure.
+* Indian securities-market regulatory disclaimer.
+
+Include the statement:
+
+"AI StockVision is an educational stock-market analysis platform. Its outputs are not guaranteed and must not be treated as personalized investment advice, trading recommendations, or a substitute for independent financial judgment."
+
+---
+
+# 4. HOME PAGE
+
+Build a visually impressive homepage.
+
+Include:
+
+### Hero section
+
+Headline:
+
+"Understand the Market. Analyze the Chart. Learn the Risk."
+
+Subheading:
+
+"Explore AI-assisted technical analysis, chart-image interpretation, price scenarios, and risk-management tools in one educational platform."
+
+Buttons:
+
+* Analyze a Chart
+* Explore Market Data
+* Ask AI Assistant
+
+Use animated gradients, subtle 3D market graphics, and a professionally designed background.
+
+Do not display fabricated market statistics, fake prediction accuracy, or simulated stock tickers.
+
+### Feature sections
+
+Create feature cards for:
+
+1. AI Chart Image Analysis
+2. Technical Indicator Analysis
+3. AI Stock Assistant
+4. Interactive Prediction Levels
+5. Risk Management Calculator
+6. Downloadable PDF Reports
+7. Historical Analysis
+8. Secure User Accounts
+
+Each card must navigate to its actual feature.
+
+### Data integrity
+
+If you display market information on the homepage, retrieve it from the configured financial data provider.
+
+Show loading, unavailable, and error states when the provider cannot return data.
+
+Do not use hardcoded market prices or fake performance figures.
+
+---
+
+# 5. ANIMATED LOGIN PAGE
+
+Create a premium, colorful, animated login page.
+
+Design requirements:
+
+* Modern glassmorphism login card.
+* Animated gradient background.
+* Subtle floating financial-chart graphics.
+* Smooth transitions.
+* Beautiful input focus effects.
+* Password visibility toggle.
+* Email and password validation.
+* Loading animation.
+* Clear error messages.
+* Successful login transition.
+* Forgot-password functionality.
+* Link to registration.
+
+Authentication requirements:
+
+* Validate credentials on the backend.
+* Never store plaintext passwords.
+* Use secure password hashing.
+* Use secure session cookies or securely implemented authentication tokens.
+* Apply login rate limiting.
+* Handle invalid credentials without revealing sensitive account information.
+* Add protection against common authentication attacks.
+
+Do not allow an unverified user to access protected features if email verification is required.
+
+---
+
+# 6. ANIMATED REGISTRATION PAGE WITH EMAIL OTP
+
+Create a beautiful registration page matching the login design.
+
+Fields:
+
+* Full name.
+* Email address.
+* Password.
+* Confirm password.
+* Acceptance of Terms and Privacy Policy.
+
+### Registration process
+
+Step 1: User enters registration details.
+
+Step 2: Backend validates the information and checks whether the email is already registered.
+
+Step 3: Generate a cryptographically secure, six-digit email verification OTP.
+
+Step 4: Store only a secure hash of the OTP, with an expiration time.
+
+Step 5: Send the OTP through the configured email provider.
+
+Step 6: Display a dedicated OTP verification screen.
+
+Step 7: Validate the OTP on the backend.
+
+Step 8: Enforce expiration, maximum attempts, resend cooldowns, and rate limits.
+
+Step 9: Mark the email as verified only after successful verification.
+
+Step 10: Create or activate the user account.
+
+Step 11: Send a beautifully designed welcome email to the registered email address.
+
+Step 12: Redirect the user to the dashboard.
+
+Do not create a fully active account before successful verification.
+
+Use a real email service such as a properly configured SMTP provider or transactional email API.
+
+### Welcome email design
+
+Create an attractive HTML welcome email containing:
+
+* AI StockVision branding.
+* Personalized greeting.
+* Successful registration confirmation.
+* Educational platform introduction.
+* Links to the dashboard and documentation.
+* Security reminder.
+* Risk disclaimer.
+
+Never expose OTPs, passwords, API secrets, or internal authentication tokens in application logs.
+
+Also implement:
+
+* Resend verification email.
+* Expired OTP handling.
+* Duplicate-email handling.
+* Forgot password.
+* Password reset using a secure, expiring token.
+* Logout.
+* Account settings.
+* Session expiration.
+
+---
+
+# 7. USER DASHBOARD
+
+Create a fully functional dashboard after login.
+
+Display actual information associated with the authenticated user.
+
+### Dashboard sections
+
+1. Welcome message.
+2. Recent chart analyses.
+3. Saved PDF reports.
+4. Watchlist.
+5. Recent AI conversations.
+6. Risk calculator.
+7. Market-data availability.
+8. Account and security settings.
+
+Use database queries to retrieve the user's actual records.
+
+Show a proper empty state when the user has not performed any analyses.
+
+Do not fill the dashboard with sample reports, fake stocks, fabricated statistics, or placeholder portfolio balances.
+
+---
+
+# 8. STOCK CHART IMAGE UPLOAD AND AI ANALYSIS
+
+This is one of the most important features.
+
+Create a dedicated page named:
+
+**AI Chart Analyzer**
+
+Allow users to upload a screenshot or image of a stock chart.
+
+### Supported image formats
+
+* PNG
+* JPG
+* JPEG
+* WEBP
+
+Set a configurable upload-size limit.
+
+Validate MIME types and actual file contents on the backend.
+
+Reject unsupported formats and potentially malicious uploads.
+
+Do not allow uploaded files to execute as code.
+
+### Upload interface
+
+Create a modern drag-and-drop interface with:
+
+* Drag-and-drop upload.
+* Browse files button.
+* Image preview.
+* Remove image button.
+* Upload progress.
+* Analysis progress.
+* Error messages.
+* Retry option.
+
+Allow users to provide additional context:
+
+* Stock symbol.
+* Exchange.
+* Timeframe.
+* Chart type.
+* Current price, if known.
+* Indicators visible in the image.
+* Optional analysis question.
+
+Do not require information that cannot reasonably be obtained from the uploaded image.
+
+### AI image analysis workflow
+
+1. User uploads a chart image.
+2. Frontend sends the image and metadata to the backend.
+3. Backend validates the upload.
+4. Backend securely stores the image or processes it temporarily.
+5. Backend sends the image to a vision-capable AI service.
+6. AI extracts visible chart information.
+7. The analysis service identifies visible candlestick patterns, chart structure, trend direction, support and resistance, and potential technical indicators.
+8. If the stock symbol and timeframe are known, retrieve relevant historical market data where available.
+9. Calculate supported technical indicators from actual price data.
+10. Combine visual observations with calculated indicators.
+11. Generate conditional bullish, bearish, and neutral scenarios where appropriate.
+12. Calculate uncertainty and data-quality limitations.
+13. Return a structured analysis response.
+14. Save the analysis to MongoDB.
+15. Display the results in the frontend.
+16. Allow the user to generate a downloadable PDF report.
+
+### Important AI accuracy rules
+
+The AI must distinguish between:
+
+* Information directly visible in the image.
+* Information calculated from real market data.
+* Interpretations inferred from chart patterns.
+* Information that cannot be determined.
+
+Do not pretend to extract exact OHLC values from an image when the pixels do not support that level of precision.
+
+If the stock symbol, timeframe, scale, or candles are unclear, state that limitation.
+
+Never claim that chart patterns guarantee future prices.
+
+Do not invent current prices, historical candles, technical indicators, or prediction confidence.
+
+If the uploaded image is not a recognizable financial chart, explain the problem and request a suitable image.
+
+---
+
+# 9. STOCK PRICE FORECASTING ENGINE
+
+Build a modular analysis engine that produces educational price scenarios.
+
+Use a combination of:
+
+* Technical indicator calculations.
+* Historical price data.
+* Trend analysis.
+* Support and resistance detection.
+* Volatility estimation.
+* Candlestick-pattern observations.
+* Optional time-series forecasting models.
+* AI-assisted interpretation.
+
+Do not use an LLM alone to invent numerical stock prices.
+
+Where numerical forecasting is supported by sufficient data, use an explicitly defined forecasting method and return the model's actual output.
+
+Potential technical indicators include:
+
+* Simple Moving Average (SMA).
+* Exponential Moving Average (EMA).
+* Relative Strength Index (RSI).
+* Moving Average Convergence Divergence (MACD).
+* Bollinger Bands.
+* Average True Range (ATR).
+* Volume analysis.
+* VWAP, when the required intraday data is available.
+
+Validate that the underlying data is adequate for each calculation.
+
+### Forecast horizons
+
+Allow configurable horizons such as:
+
+* Intraday, when supported by suitable intraday data.
+* 1 trading day.
+* 5 trading days.
+* 10 trading days.
+* 20 trading days.
+
+Only offer horizons supported by the selected data and forecasting method.
+
+### Prediction output
+
+Return a structured response containing:
+
+* Stock symbol.
+* Exchange.
+* Analysis timestamp.
+* Data timestamp.
+* Selected timeframe.
+* Current or reference price.
+* Observed trend.
+* Technical indicator readings.
+* Support levels.
+* Resistance levels.
+* Bullish scenario.
+* Bearish scenario.
+* Neutral scenario.
+* Forecast range, where statistically supported.
+* Model and method description.
+* Historical volatility.
+* Key assumptions.
+* Data-quality warnings.
+* Uncertainty explanation.
+* Risk assessment.
+* Educational disclaimer.
+
+Clearly distinguish a conditional scenario from a guaranteed outcome.
+
+If the model cannot support a numerical target, return a qualitative analysis instead of fabricating a price.
+
+Do not describe uncalibrated model scores as probabilities.
+
+---
+
+# 10. INTERACTIVE CHART WITH MARKED LEVELS
+
+Display the uploaded chart analysis alongside a separate interactive chart built from actual market data when available.
+
+Use TradingView Lightweight Charts or an equivalent charting library.
+
+### Chart features
+
+* Candlestick chart.
+* Zoom and pan.
+* Crosshair.
+* Timeframe selector.
+* Price axis.
+* Time axis.
+* Volume panel, when available.
+* Technical indicator overlays.
+* Support and resistance lines.
+* Reference-price line.
+* Forecast scenario levels.
+* Forecast range shading, where supported.
+* Tooltip descriptions.
+* Legend.
+* Export chart as an image.
+
+### Marked levels
+
+Clearly label:
+
+* Current/reference price.
+* Support Level 1.
+* Support Level 2.
+* Resistance Level 1.
+* Resistance Level 2.
+* Bullish scenario target.
+* Bearish scenario target.
+* Invalidation level.
+* Potential stop-loss reference.
+* Potential take-profit references.
+
+Do not display every level if the analysis does not support it.
+
+If the analysis is based only on an uploaded image, overlay markings on a copy of the image only when image coordinates and price mapping can be reliably determined.
+
+Otherwise, display the original image next to a separately generated chart and explain that the overlay is an approximation or is unavailable.
+
+Never draw precise price levels onto a screenshot without a reliable mapping between image pixels and chart prices.
+
+### Interactive level editing
+
+Allow users to adjust levels manually.
+
+Clearly distinguish:
+
+* AI-generated levels.
+* Data-derived levels.
+* User-edited levels.
+
+Recalculate risk metrics after a user changes a level.
+
+Do not imply that the marked levels are guaranteed entry or exit points.
+
+---
+
+# 11. AI STOCK CHATBOT
+
+Create a dedicated AI assistant named:
+
+**StockVision AI Assistant**
+
+The chatbot must answer educational questions related to stocks, technical analysis, market structure, indicators, risk management, and financial concepts.
+
+### Chatbot interface
+
+Include:
+
+* Clean chat interface.
+* Animated typing indicator.
+* Markdown responses.
+* Code-free financial explanations.
+* Conversation history.
+* New conversation button.
+* Clear chat option.
+* Suggested educational questions.
+* Copy response button.
+* Responsive layout.
+
+### Example question categories
+
+* What does RSI indicate?
+* How can I interpret support and resistance?
+* What does a bullish breakout mean?
+* What is the difference between SMA and EMA?
+* How does volatility affect risk?
+* How is a stop-loss reference calculated?
+* What does a bearish chart structure suggest?
+* How should I interpret this uploaded chart?
+* What limitations affect this forecast?
+
+These are examples of supported topics, not fabricated conversations or preloaded market answers.
+
+### Context-aware chatbot
+
+Allow the user to open the chatbot from an existing chart analysis.
+
+When permitted by the user, provide the assistant with:
+
+* Stock symbol.
+* Selected timeframe.
+* Analysis results.
+* Technical indicator values.
+* Support and resistance levels.
+* Forecast scenarios.
+* Data timestamp.
+* Relevant historical conversation context.
+
+The chatbot should answer questions about the selected analysis rather than responding as if every stock has the same chart.
+
+Do not claim to have analyzed an image unless the relevant analysis actually exists.
+
+### Financial safety
+
+The chatbot must not:
+
+* Guarantee stock-market profits.
+* Claim to know the future with certainty.
+* Fabricate breaking news.
+* Invent current market prices.
+* Present unverified rumors as facts.
+* Encourage users to borrow money to trade.
+* Make personalized buy/sell recommendations without the necessary regulatory and compliance framework.
+
+When current market information is requested, retrieve it from an available, permitted source or explicitly explain that current data is unavailable.
+
+Include appropriate educational and risk disclosures in relevant answers.
+
+---
+
+# 12. RISK MANAGEMENT SYSTEM
+
+Create a complete educational risk-management module.
+
+Page title:
+
+**Risk Management & Position Calculator**
+
+Allow users to enter:
+
+* Reference entry price.
+* Potential stop-loss level.
+* Potential target price.
+* Available capital.
+* User-selected risk percentage.
+* Brokerage and estimated transaction costs, if known.
+* Applicable taxes or charges, if configured.
+* Quantity, optionally calculated automatically.
+
+### Calculations
+
+Implement:
+
+Risk amount = Available capital × Risk percentage / 100
+
+For a long-position illustration:
+
+Per-unit price risk = Entry price − Stop-loss price
+
+Potential position quantity = Floor(risk amount / per-unit price risk)
+
+Estimated gross exposure = Quantity × Entry price
+
+Illustrative reward = Quantity × (Target price − Entry price)
+
+Illustrative risk-to-reward ratio = Potential reward / Potential loss
+
+Adjust the calculation for short-position illustrations and reject invalid inputs.
+
+Ensure that the entry, stop-loss, and target prices have a logically consistent relationship for the selected scenario.
+
+### Risk warnings
+
+Display:
+
+* Maximum planned loss under the specified assumptions.
+* Potential reward under the specified assumptions.
+* Risk-to-reward ratio.
+* Estimated capital required.
+* Gross exposure.
+* Applicable transaction-cost estimates.
+* Gap risk.
+* Slippage risk.
+* Liquidity risk.
+* Volatility risk.
+* Data limitations.
+
+Clearly explain that a stop-loss does not guarantee execution at the specified price and that actual losses can exceed the estimated amount.
+
+For derivatives, support additional contract-specific fields only when reliable contract specifications and margin information are available.
+
+Never fabricate brokerage, margin, tax, or exchange-charge figures.
+
+Do not connect the calculator to automatic order execution.
+
+### Risk visualization
+
+Create interactive charts that illustrate hypothetical outcomes at different prices.
+
+Mark the reference entry, potential stop-loss, target, and invalidation levels.
+
+These are educational scenario calculations, not guarantees or personalized investment recommendations.
+
+---
+
+# 13. PDF STOCK ANALYSIS REPORT GENERATOR
+
+After each successful analysis, provide a button:
+
+**Generate & Download PDF Report**
+
+Generate the report on the backend using actual saved analysis data.
+
+Use a reliable PDF generation library.
+
+The report must be professionally designed and suitable for educational and academic purposes.
+
+### PDF report structure
+
+Page 1: Cover
+
+* AI StockVision branding.
+* Report title.
+* Stock symbol.
+* Exchange.
+* Analysis date and time.
+* Selected timeframe.
+* Report identification number.
+
+Page 2: Executive Summary
+
+* Brief chart interpretation.
+* Observed trend.
+* Key technical observations.
+* Data source and timestamp.
+* Important limitations.
+
+Page 3: Chart Analysis
+
+* Uploaded chart image, if appropriate.
+* Interactive-chart export or rendered chart, if available.
+* Support levels.
+* Resistance levels.
+* Technical indicators.
+* Observed chart patterns.
+
+Page 4: Forecast Scenarios
+
+* Bullish scenario.
+* Bearish scenario.
+* Neutral scenario.
+* Supported forecast range.
+* Conditional target levels.
+* Invalidation conditions.
+* Forecast methodology.
+* Uncertainty and limitations.
+
+Page 5: Risk Management
+
+* Reference price.
+* Hypothetical entry level, if provided.
+* Stop-loss reference.
+* Target reference.
+* Risk-to-reward calculation.
+* Illustrative position sizing.
+* Volatility and liquidity considerations.
+* Slippage and gap-risk warnings.
+
+Page 6: Methodology and Data Quality
+
+* Financial data provider.
+* Market-data timestamp.
+* AI model or analysis method.
+* Indicators used.
+* Relevant assumptions.
+* Missing or incomplete information.
+* Forecast limitations.
+
+Page 7: Mandatory Disclaimer
+
+Include a clearly visible disclaimer stating:
+
+"EDUCATIONAL PURPOSES ONLY — NOT INVESTMENT ADVICE.
+
+This report is generated by an AI-assisted educational stock-market analysis platform. It is intended solely for learning, research, and demonstration of technical analysis concepts.
+
+The analysis, forecasts, chart markings, price scenarios, and risk calculations are uncertain and may be incomplete, inaccurate, or based on limited historical information. They do not guarantee future market performance.
+
+This report is not a recommendation, solicitation, or offer to buy, sell, or hold any security or financial instrument. It is not personalized investment advice, and it should not be relied upon as the sole basis for any financial decision.
+
+SEBI AND REGULATORY COMPLIANCE NOTICE: This educational report does not claim to be approved, endorsed, certified, or authorized by the Securities and Exchange Board of India (SEBI). The website operator must ensure that the platform's actual services, communications, and business model comply with applicable Indian securities laws and SEBI requirements. This disclaimer does not exempt any person or business from applicable registration, licensing, disclosure, or other legal obligations.
+
+Stock prices can change rapidly. Past performance does not guarantee future results. Forecasts may be wrong. Stop-loss levels may not execute at the expected price, and actual losses can exceed calculated estimates.
+
+Users should independently verify market data and consult a suitably qualified and appropriately registered professional where required before making financial decisions.
+
+The platform is provided for educational purposes only and does not guarantee profits or prevent losses."
+
+Also include:
+
+* Report generation timestamp.
+* Unique report ID.
+* Forecast methodology.
+* Data-source timestamp.
+* Version of the analysis method, when available.
+
+The disclaimer must be included in every generated PDF report.
+
+Do not allow a PDF to be generated from a failed analysis or fabricate missing analysis sections.
+
+### PDF security
+
+* Validate report ownership.
+* Generate reports on the backend.
+* Sanitize user-provided text.
+* Prevent unauthorized report access.
+* Use safe filenames.
+* Return the correct PDF content type.
+* Allow only the authenticated report owner to download the report.
+
+---
+
+# 14. MY REPORTS PAGE
+
+Create a reports-management page.
+
+Features:
+
+* View previously generated reports.
+* Search by stock symbol.
+* Filter by date.
+* View analysis summaries.
+* Download PDF reports again.
+* Delete saved reports.
+* View report generation timestamps.
+
+All reports must come from MongoDB records belonging to the authenticated user.
+
+A user must never be able to access another user's reports by changing an ID in the URL.
+
+Use secure authorization checks on every report operation.
+
+---
+
+# 15. WATCHLIST
+
+Allow authenticated users to:
+
+* Add stocks to a personal watchlist.
+* Remove stocks.
+* View available market prices.
+* Open a stock's analysis page.
+* Select a timeframe.
+* Start a chart analysis.
+
+Retrieve prices from the configured market-data provider.
+
+If data is unavailable, display an unavailable indicator instead of a fake price.
+
+Store watchlists in MongoDB.
+
+Validate stock symbols and exchanges.
+
+---
+
+# 16. MONGODB DATABASE DESIGN
+
+Create properly designed Mongoose schemas.
+
+## User schema
+
+Fields:
+
+* name
+* email
+* passwordHash
+* emailVerified
+* accountStatus
+* role
+* preferences
+* createdAt
+* updatedAt
+* lastLoginAt
+
+Never expose password hashes through API responses.
+
+Implement role-based access control.
+
+Public registration must not allow a user to create an administrator account by supplying a role field.
+
+## OTP verification schema
+
+Fields:
+
+* email
+* otpHash
+* purpose
+* expiresAt
+* attempts
+* resendAfter
+* createdAt
+
+Use appropriate expiration indexes and securely delete or invalidate expired verification records.
+
+## Analysis schema
+
+Fields:
+
+* userId
+* stockSymbol
+* exchange
+* timeframe
+* sourceType
+* uploadedImageReference
+* referencePrice
+* technicalIndicators
+* supportLevels
+* resistanceLevels
+* forecastScenarios
+* riskAssessment
+* methodology
+* dataSource
+* dataTimestamp
+* warnings
+* createdAt
+
+## Report schema
+
+Fields:
+
+* reportId
+* userId
+* analysisId
+* reportStorageReference
+* reportFormat
+* methodologyVersion
+* createdAt
+
+## Chat conversation schema
+
+Fields:
+
+* userId
+* title
+* associatedAnalysisId
+* messages
+* createdAt
+* updatedAt
+
+## Watchlist schema
+
+Fields:
+
+* userId
+* stocks
+* createdAt
+* updatedAt
+
+Implement suitable indexes and data validation.
+
+Ensure user-specific records are filtered by authenticated user ID.
+
+---
+
+# 17. BACKEND API ENDPOINTS
+
+Implement and document REST endpoints for all major features.
+
+### Authentication
+
+POST /api/auth/register
+
+POST /api/auth/verify-email
+
+POST /api/auth/resend-otp
+
+POST /api/auth/login
+
+POST /api/auth/logout
+
+GET /api/auth/me
+
+POST /api/auth/forgot-password
+
+POST /api/auth/reset-password
+
+### Chart analysis
+
+POST /api/analysis/upload
+
+POST /api/analysis/:id/run
+
+GET /api/analysis
+
+GET /api/analysis/:id
+
+DELETE /api/analysis/:id
+
+### Market data
+
+GET /api/market/quote/:symbol
+
+GET /api/market/history/:symbol
+
+GET /api/market/search
+
+GET /api/market/indicators/:symbol
+
+### AI chatbot
+
+POST /api/chat/conversations
+
+GET /api/chat/conversations
+
+GET /api/chat/conversations/:id
+
+POST /api/chat/conversations/:id/messages
+
+DELETE /api/chat/conversations/:id
+
+### Risk management
+
+POST /api/risk/calculate
+
+### PDF reports
+
+POST /api/reports/generate/:analysisId
+
+GET /api/reports
+
+GET /api/reports/:id
+
+GET /api/reports/:id/download
+
+DELETE /api/reports/:id
+
+### Watchlist
+
+GET /api/watchlist
+
+POST /api/watchlist
+
+DELETE /api/watchlist/:symbol
+
+### System
+
+GET /api/health
+
+Implement consistent response structures, validation, authorization, pagination, and centralized error handling.
+
+Document required fields and error responses.
+
+Do not expose stack traces or secrets to users in production.
+
+---
+
+# 18. EMAIL SERVICE
+
+Implement a reusable email service.
+
+Email templates must include:
+
+1. Registration OTP.
+2. Welcome email.
+3. Password-reset email.
+4. Security notification, where appropriate.
+
+Use a real configured email provider.
+
+Requirements:
+
+* HTML and plain-text versions.
+* Responsive email design.
+* Verified sender configuration.
+* Retry handling where appropriate.
+* Rate limiting.
+* Secure template variables.
+* No credentials in source code.
+* Clear errors when email delivery fails.
+
+Do not claim an email has been delivered merely because a request was submitted to the email provider.
+
+Record relevant delivery status when supported by the provider.
+
+---
+
+# 19. SECURITY REQUIREMENTS
+
+Implement:
+
+* Secure password hashing.
+* Email verification.
+* Strong input validation.
+* Authentication and authorization middleware.
+* Role-based access control.
+* Login and OTP rate limiting.
+* Secure cookie configuration.
+* CSRF protections appropriate to the chosen authentication architecture.
+* Strict CORS configuration.
+* Helmet security headers.
+* MongoDB query sanitization.
+* Upload size and file-type restrictions.
+* Protection against unauthorized resource access.
+* Secure error handling.
+* API request limits.
+* Secrets management through environment variables.
+* Dependency vulnerability checks.
+* Account deletion and data-retention policies.
+
+Do not place private AI API keys, SMTP credentials, MongoDB credentials, or payment secrets in frontend code.
+
+The frontend must communicate with protected services through the backend.
+
+---
+
+# 20. ENVIRONMENT CONFIGURATION
+
+Create a complete `.env.example` file.
+
+Include variables such as:
+
+NODE_ENV=
+PORT=
+FRONTEND_URL=
+BACKEND_URL=
+MONGODB_URI=
+SESSION_SECRET=
+JWT_SECRET=
+EMAIL_PROVIDER=
+SMTP_HOST=
+SMTP_PORT=
+SMTP_USER=
+SMTP_PASSWORD=
+EMAIL_FROM=
+AI_PROVIDER=
+AI_API_KEY=
+AI_MODEL=
+MARKET_DATA_PROVIDER=
+MARKET_DATA_API_KEY=
+UPLOAD_MAX_SIZE_MB=
+REPORT_STORAGE_PATH=
+
+Add any additional variables required by the selected providers.
+
+Never commit the actual `.env` file.
+
+Validate required environment variables at application startup.
+
+Show a clear configuration error if required credentials are missing.
+
+Document which variables are mandatory and which are optional.
+
+---
+
+# 21. PROJECT STRUCTURE
+
+Organize the application professionally.
+
+Use a structure similar to:
+
+ai-stockvision/
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── layouts/
+│   │   ├── hooks/
+│   │   ├── services/
+│   │   ├── contexts/
+│   │   ├── types/
+│   │   ├── utils/
+│   │   └── main.tsx
+│   ├── public/
+│   ├── package.json
+│   └── vite.config.ts
+│
+├── backend/
+│   ├── src/
+│   │   ├── config/
+│   │   ├── controllers/
+│   │   ├── middleware/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   ├── services/
+│   │   │   ├── ai/
+│   │   │   ├── marketData/
+│   │   │   ├── analysis/
+│   │   │   ├── risk/
+│   │   │   ├── email/
+│   │   │   └── reports/
+│   │   ├── validators/
+│   │   ├── utils/
+│   │   ├── app.ts
+│   │   └── server.ts
+│   ├── tests/
+│   └── package.json
+│
+├── docs/
+│   ├── API.md
+│   ├── DATABASE.md
+│   ├── DEPLOYMENT.md
+│   └── SECURITY.md
+│
+├── .env.example
+├── .gitignore
+└── README.md
+
+You may adapt the structure where necessary, but keep the frontend and backend organized and maintainable.
+
+---
+
+# 22. ERROR HANDLING AND LOADING STATES
+
+Implement proper UI states for:
+
+* Initial page loading.
+* Login submission.
+* Registration submission.
+* OTP verification.
+* Email delivery failure.
+* Market-data provider outage.
+* AI provider outage.
+* Invalid chart upload.
+* Unsupported image.
+* Chart analysis in progress.
+* Insufficient historical data.
+* Forecast unavailable.
+* PDF generation failure.
+* MongoDB connection failure.
+* Expired session.
+* Unauthorized report access.
+* Rate-limit errors.
+
+Do not display fabricated successful results when a request fails.
+
+Offer a meaningful retry action where appropriate.
+
+---
+
+# 23. TESTING REQUIREMENTS
+
+Create real automated tests.
+
+### Backend tests
+
+Test:
+
+* Registration validation.
+* Duplicate email handling.
+* OTP verification and expiration.
+* Login and logout.
+* Protected routes.
+* User ownership restrictions.
+* Image upload validation.
+* Invalid chart handling.
+* AI provider failures.
+* Market-data provider failures.
+* Risk calculation correctness.
+* PDF report generation.
+* Mandatory PDF disclaimer.
+* Report download authorization.
+* Watchlist operations.
+* Chat conversation ownership.
+
+Use mocked external services only within isolated automated tests. Do not use those mocks as production application data.
+
+### Frontend tests
+
+Test:
+
+* Registration form validation.
+* OTP verification.
+* Login flow.
+* Chart upload interface.
+* Analysis results rendering.
+* Chatbot interactions.
+* Risk calculator.
+* Report download.
+* Loading and error states.
+* Responsive navigation.
+
+### Integration tests
+
+Verify that:
+
+1. A user can register.
+2. A real email OTP can be sent through the configured email provider.
+3. The user can verify their email.
+4. The user can log in.
+5. The user can upload a chart.
+6. The configured AI service can analyze the image.
+7. Actual market data is retrieved when the relevant provider supports it.
+8. A successful analysis is stored in MongoDB.
+9. The user can ask questions about that analysis.
+10. The user can calculate hypothetical risk scenarios.
+11. A PDF report is generated with the required disclaimer.
+12. The report can be downloaded securely.
+13. Another user cannot access the report.
+
+---
+
+# 24. DEPLOYMENT REQUIREMENTS
+
+Prepare the project for deployment.
+
+### Frontend
+
+Support deployment to a suitable static frontend host.
+
+Configure the production backend URL using an environment variable.
+
+Do not hardcode localhost URLs in production builds.
+
+### Backend
+
+Support deployment to Render or another compatible Node.js hosting provider.
+
+Configure:
+
+* Build command.
+* Start command.
+* Environment variables.
+* Health-check endpoint.
+* MongoDB Atlas connection.
+* CORS.
+* Email service.
+* AI provider.
+* Market-data provider.
+* Persistent report and image storage where required.
+
+Do not assume that a hosting provider's local filesystem is persistent.
+
+Use appropriate object storage or another durable storage solution for uploaded images and PDF files.
+
+### Database
+
+Use MongoDB Atlas.
+
+Provide instructions for:
+
+* Creating a database.
+* Configuring network access securely.
+* Creating database credentials.
+* Setting the MongoDB connection string.
+* Testing the database connection.
+* Managing indexes.
+* Backups and retention.
+
+Never publish database credentials.
+
+---
+
+# 25. PERFORMANCE AND ACCESSIBILITY
+
+Optimize the application for:
+
+* Desktop.
+* Laptop.
+* Tablet.
+* Mobile.
+
+Implement:
+
+* Lazy-loaded pages.
+* Optimized chart rendering.
+* Compressed image previews.
+* Efficient database queries.
+* API pagination.
+* Reusable components.
+* Accessible form labels.
+* Keyboard navigation.
+* Appropriate color contrast.
+* Reduced-motion support.
+* Responsive financial charts.
+
+Do not add excessive 3D animations that make charts difficult to read.
+
+Prioritize accessibility and financial-data readability.
+
+---
+
+# 26. FINAL ACCEPTANCE CRITERIA
+
+The application is complete only when all of the following work:
+
+1. The home page loads correctly.
+2. Login and registration pages have polished animations.
+3. Email OTP verification works through the configured email service.
+4. A welcome email is sent after successful registration.
+5. MongoDB stores real user records.
+6. Authentication protects private pages and APIs.
+7. Users can upload chart images.
+8. The backend validates uploaded files.
+9. The configured vision AI service analyzes suitable chart images.
+10. Actual market data is retrieved when available.
+11. Unsupported forecasts are reported as unavailable rather than fabricated.
+12. The application displays supported chart-analysis levels.
+13. Interactive charts use real data when available.
+14. Users can edit hypothetical levels and recalculate risk.
+15. The AI chatbot answers questions using the selected analysis context.
+16. Conversations are stored securely.
+17. Risk calculations are mathematically correct.
+18. PDF reports contain the actual analysis.
+19. Every generated PDF contains the complete educational and SEBI-related disclaimer.
+20. Users can download their own reports.
+21. Users cannot access other users' private data.
+22. The watchlist works with actual market data.
+23. The application handles missing API keys and external-service outages properly.
+24. Automated tests cover critical functionality.
+25. Production deployment instructions are complete.
+26. No mock market data or fake prediction results appear in the production UI.
+27. All critical buttons, links, forms, and navigation elements work.
+
+---
+
+# 27. IMPLEMENTATION INSTRUCTIONS FOR THE AI CODING AGENT
+
+Do not stop after generating the homepage or a frontend prototype.
+
+First inspect the current project and its existing files.
+
+If the repository already contains an application, preserve useful existing code and integrate the new features without unnecessarily deleting working functionality.
+
+Then implement the application in the following order:
+
+PHASE 1: Project architecture and environment configuration.
+
+PHASE 2: MongoDB connection and database schemas.
+
+PHASE 3: Authentication, registration, email OTP, and welcome email.
+
+PHASE 4: Complete frontend design and protected routing.
+
+PHASE 5: Financial-data provider integration.
+
+PHASE 6: Chart image upload and AI vision integration.
+
+PHASE 7: Technical indicator calculations and forecasting engine.
+
+PHASE 8: Interactive chart and prediction levels.
+
+PHASE 9: Context-aware AI stock chatbot.
+
+PHASE 10: Risk management calculator.
+
+PHASE 11: PDF report generation and secure downloads.
+
+PHASE 12: Watchlist and analysis history.
+
+PHASE 13: Automated testing, security checks, and error handling.
+
+PHASE 14: Deployment configuration and documentation.
+
+After each phase:
+
+* Run the appropriate tests.
+* Fix build errors.
+* Check API integration.
+* Verify database behavior.
+* Confirm that the frontend connects to the backend.
+* Document any external credentials required.
+
+Before declaring completion, run the build and available automated tests.
+
+Provide the final project structure, setup instructions, environment-variable documentation, database setup, API documentation, deployment instructions, and a checklist of completed functionality.
+
+Do not claim a feature is working unless it has actually been implemented and verified.
+
+If a provider requires API credentials, complete the integration code and identify exactly which credentials the developer must supply.
+
+The final result must be a functional, secure, professional, educational AI stock-chart analysis platform—not merely a visual prototype.
